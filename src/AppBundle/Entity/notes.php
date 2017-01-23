@@ -156,4 +156,3 @@ class notes
         return $this->points;
     }
 }
-
