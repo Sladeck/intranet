@@ -22,4 +22,28 @@ class DefaultController extends Controller
     {
       return $this->render('IntranetBundle:Default:base.html.twig', array("nom"=>$i));
     }
+
+    /**
+     * @Route("/profil/")
+     */
+    public function profilAction()
+    {
+        return $this->render('IntranetBundle:Default:profil.html.twig');
+    }
+
+    /**
+     * @Route("/notes/")
+     */
+    public function notesAction()
+    {
+        return $this->render('IntranetBundle:Default:notes.html.twig');
+    }
+
+    /**
+     * @Route("/matieres/")
+     */
+    public function matieresAction()
+    {
+        return $this->render('IntranetBundle:Default:matieres.html.twig');
+    }
 }
