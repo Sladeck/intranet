@@ -16,14 +16,6 @@ class DefaultController extends Controller
     }
 
     /**
-    * @Route("/bon/{i}")
-    */
-    public function bonAction($i)
-    {
-      return $this->render('IntranetBundle:Default:base.html.twig', array("nom"=>$i));
-    }
-
-    /**
      * @Route("/profil/")
      */
     public function profilAction()
@@ -45,5 +37,25 @@ class DefaultController extends Controller
     public function matieresAction()
     {
         return $this->render('IntranetBundle:Default:matieres.html.twig');
+    }
+
+    /**
+     * @Route("/logout/")
+     */
+    public function logoutAction()
+    {
+        return $this->render('IntranetBundle:Default:index.html.twig');
+    }
+
+    /**
+     * @Route("/users")
+     */
+    public function usersAction()
+    {
+        $users = $this->getDoctrine()
+            ->getRepository('EntityBundle:User')
+            ->findAll();
+
+        return $this->render('IntranetBundle:Default:users.html.twig', array("users"=>$users));
     }
 }

@@ -1,0 +1,10 @@
+{% include 'IntranetBundle:Default:header.html.twig' %}
+USERS :<br>
+<ul>
+{% for user in users %}
+<li>
+    {{ user.username }}
+</li>
+{% endfor %}
+</ul>
+{% include 'IntranetBundle:Default:footer.html.twig' %}
