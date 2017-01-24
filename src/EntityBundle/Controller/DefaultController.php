@@ -14,4 +14,5 @@ class DefaultController extends Controller
     {
         return $this->render('EntityBundle:Default:index.html.twig');
     }
+
 }

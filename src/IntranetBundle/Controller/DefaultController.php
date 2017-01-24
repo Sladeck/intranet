@@ -58,4 +58,5 @@ class DefaultController extends Controller
 
         return $this->render('IntranetBundle:Default:users.html.twig', array("users"=>$users));
     }
+
 }
