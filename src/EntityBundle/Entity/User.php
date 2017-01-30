@@ -19,9 +19,49 @@ class User extends BaseUser
      */
     protected $id;
 
+
+    /**
+    * @ORM\OneToMany(targetEntity="IntranetBundle\Entity\notes", mappedBy="user")
+    **/
+    protected $notes;
+
     public function __construct()
     {
         parent::__construct();
         // your own logic
+    }
+
+    /**
+     * Add note
+     *
+     * @param \IntranetBundle\Entity\notes $note
+     *
+     * @return User
+     */
+    public function addNote(\IntranetBundle\Entity\notes $note)
+    {
+        $this->notes[] = $note;
+
+        return $this;
+    }
+
+    /**
+     * Remove note
+     *
+     * @param \IntranetBundle\Entity\notes $note
+     */
+    public function removeNote(\IntranetBundle\Entity\notes $note)
+    {
+        $this->notes->removeElement($note);
+    }
+
+    /**
+     * Get notes
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getNotes()
+    {
+        return $this->notes;
     }
 }
