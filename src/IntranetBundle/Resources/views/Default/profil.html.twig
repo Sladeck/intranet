@@ -1,3 +1,18 @@
 {% include 'IntranetBundle:Default:header.html.twig' %}
-Profil here !
+Welcome {{ app.user.username }} !
+
+<table>
+    {# for matiere in matieres
+
+    <tr>
+      <td> {{ matiere.name }} </td>
+      {% for note in user.notes %}
+        <td> {{ note.points }} </td>
+        <td> {{ note.commentaire }}</td>
+      {% endfor %}
+
+    </tr>
+
+    #}
+</table>
 {% include 'IntranetBundle:Default:footer.html.twig' %}

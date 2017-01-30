@@ -20,7 +20,8 @@ class DefaultController extends Controller
      */
     public function profilAction()
     {
-        return $this->render('IntranetBundle:Default:profil.html.twig');
+        $user = $this->getUser();
+        return $this->render('IntranetBundle:Default:profil.html.twig', array("user"=>$user));
     }
 
     /**
