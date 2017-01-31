@@ -2,17 +2,17 @@
 Welcome {{ app.user.username }} !
 
 <table>
-    {# for matiere in matieres
-
+    {% for matiere in matieres %}
+    {% for note in current_user.notes %}
     <tr>
       <td> {{ matiere.name }} </td>
-      {% for note in user.notes %}
+        <td> {{ note.project }} </td>
         <td> {{ note.points }} </td>
-        <td> {{ note.commentaire }}</td>
-      {% endfor %}
+        <td> {{ note.commentaires }}</td>
+
 
     </tr>
-
-    #}
+    {% endfor %}
+    {% endfor %}
 </table>
 {% include 'IntranetBundle:Default:footer.html.twig' %}

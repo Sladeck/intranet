@@ -43,6 +43,13 @@ class notes
     private $commentaires;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="project", type="string", nullable=false)
+     */
+    private $project;
+
+    /**
      * Get id
      *
      * @return int
@@ -50,6 +57,30 @@ class notes
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set project
+     *
+     * @param string $project
+     *
+     * @return notes
+     */
+    public function setProject($project)
+    {
+        $this->project = $project;
+
+        return $this;
+    }
+
+    /**
+     * Get project
+     *
+     * @return string
+     */
+    public function getProject()
+    {
+        return $this->project;
     }
 
     /**

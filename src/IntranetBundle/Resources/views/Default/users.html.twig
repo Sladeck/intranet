@@ -7,7 +7,9 @@ USERS :<br>
             {% for note in user.notes %}
                 <ul>
                     <li>{{ note.points }}</li>
-                    <li>{{ note.commentaires }}</li>
+                    <ul>
+                      <li>{{ note.commentaires }}</li>
+                    </ul>
                 </ul>
             {% endfor %}
         </li>
