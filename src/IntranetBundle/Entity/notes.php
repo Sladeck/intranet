@@ -165,11 +165,19 @@ class notes
     /**
      * Set matieres
      *
+<<<<<<< HEAD
      * @param \IntranetBundle\Entity\matieres $matieres
      *
      * @return notes
      */
     public function setMatieres(\IntranetBundle\Entity\matieres $matieres = null)
+=======
+     * @param \IntranetBundle\Entity\notes $matieres
+     *
+     * @return notes
+     */
+    public function setMatieres(\IntranetBundle\Entity\notes $matieres = null)
+>>>>>>> e1f775c7821a049375cbbb6e7515142b3e066bdb
     {
         $this->matieres = $matieres;
 
@@ -179,7 +187,11 @@ class notes
     /**
      * Get matieres
      *
+<<<<<<< HEAD
      * @return \IntranetBundle\Entity\matieres
+=======
+     * @return \IntranetBundle\Entity\notes
+>>>>>>> e1f775c7821a049375cbbb6e7515142b3e066bdb
      */
     public function getMatieres()
     {

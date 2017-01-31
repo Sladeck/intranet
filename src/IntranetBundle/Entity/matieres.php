@@ -78,11 +78,19 @@ class matieres
     /**
      * Add note
      *
+<<<<<<< HEAD
      * @param \IntranetBundle\Entity\notes $note
      *
      * @return matieres
      */
     public function addNote(\IntranetBundle\Entity\notes $note)
+=======
+     * @param \IntranetBundle\Entity\matieres $note
+     *
+     * @return matieres
+     */
+    public function addNote(\IntranetBundle\Entity\matieres $note)
+>>>>>>> e1f775c7821a049375cbbb6e7515142b3e066bdb
     {
         $this->notes[] = $note;
 
@@ -92,9 +100,15 @@ class matieres
     /**
      * Remove note
      *
+<<<<<<< HEAD
      * @param \IntranetBundle\Entity\notes $note
      */
     public function removeNote(\IntranetBundle\Entity\notes $note)
+=======
+     * @param \IntranetBundle\Entity\matieres $note
+     */
+    public function removeNote(\IntranetBundle\Entity\matieres $note)
+>>>>>>> e1f775c7821a049375cbbb6e7515142b3e066bdb
     {
         $this->notes->removeElement($note);
     }
