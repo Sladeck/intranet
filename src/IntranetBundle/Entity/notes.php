@@ -20,6 +20,12 @@ class notes
     private $user;
 
     /**
+    * @ORM\ManyToOne(targetEntity="matieres", inversedBy="notes")
+    * @ORM\JoinColumn(name="id_matieres", referencedColumnName="id")
+    **/
+    private $matieres;
+
+    /**
      * @var int
      *
      * @ORM\Column(name="id", type="integer")
@@ -154,5 +160,29 @@ class notes
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Set matieres
+     *
+     * @param \IntranetBundle\Entity\matieres $matieres
+     *
+     * @return notes
+     */
+    public function setMatieres(\IntranetBundle\Entity\matieres $matieres = null)
+    {
+        $this->matieres = $matieres;
+
+        return $this;
+    }
+
+    /**
+     * Get matieres
+     *
+     * @return \IntranetBundle\Entity\matieres
+     */
+    public function getMatieres()
+    {
+        return $this->matieres;
     }
 }

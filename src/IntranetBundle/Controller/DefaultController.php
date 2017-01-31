@@ -20,16 +20,8 @@ class DefaultController extends Controller
      */
     public function profilAction()
     {
-        $current_user = $this->getUser(); //get current user
-
-        $matieres = $this->getDoctrine()
-                    ->getRepository('IntranetBundle:matieres')
-                    ->findAll();
-
-        $user = $this->getDoctrine()
-                ->getRepository('EntityBundle:User')
-                ->findOneById($current_user->getId());
-        return $this->render('IntranetBundle:Default:profil.html.twig', array("current_user"=>$current_user,"matieres"=>$matieres,"user"=>$user));
+        $user = $this->getUser(); //get current user
+        return $this->render('IntranetBundle:Default:profil.html.twig', array("user"=>$user));
     }
 
     /**

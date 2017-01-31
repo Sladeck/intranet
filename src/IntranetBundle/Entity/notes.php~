@@ -20,6 +20,12 @@ class notes
     private $user;
 
     /**
+    * @ORM\ManyToOne(targetEntity="matieres", inversedBy="notes")
+    * @ORM\JoinColumn(name="id_matieres", referencedColumnName="id")
+    **/
+    private $matieres;
+
+    /**
      * @var int
      *
      * @ORM\Column(name="id", type="integer")
@@ -36,6 +42,20 @@ class notes
     private $points;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="commentaires", type="string", nullable=true)
+     */
+    private $commentaires;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="project", type="string", nullable=false)
+     */
+    private $project;
+
+    /**
      * Get id
      *
      * @return int
@@ -43,6 +63,30 @@ class notes
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set project
+     *
+     * @param string $project
+     *
+     * @return notes
+     */
+    public function setProject($project)
+    {
+        $this->project = $project;
+
+        return $this;
+    }
+
+    /**
+     * Get project
+     *
+     * @return string
+     */
+    public function getProject()
+    {
+        return $this->project;
     }
 
     /**
@@ -69,4 +113,52 @@ class notes
         return $this->points;
     }
 
+    /**
+     * Set commentaires
+     *
+     * @param integer $commentaires
+     *
+     * @return notes
+     */
+    public function setCommentaires($commentaires)
+    {
+        $this->commentaires = $commentaires;
+
+        return $this;
+    }
+
+    /**
+     * Get commentaires
+     *
+     * @return int
+     */
+    public function getCommentaires()
+    {
+        return $this->commentaires;
+    }
+
+
+    /**
+     * Set user
+     *
+     * @param \EntityBundle\Entity\User $user
+     *
+     * @return notes
+     */
+    public function setUser(\EntityBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \EntityBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
 }
