@@ -1,15 +1,16 @@
 {% include 'IntranetBundle:Default:header.html.twig' %}
 USERS :<br>
 <ul>
-{% for user in users %}
-<li>
-    {{ user.username }} <br>
-    {% for note in user.notes %}
-    <ul>
-        <li>{{ note.points }}</li>
-    </ul>
+    {% for user in users %}
+        <li>
+            {{ user.username }} <br>
+            {% for note in user.notes %}
+                <ul>
+                    <li>{{ note.points }}</li>
+                    <li>{{ note.commentaires }}</li>
+                </ul>
+            {% endfor %}
+        </li>
     {% endfor %}
-</li>
-{% endfor %}
 </ul>
 {% include 'IntranetBundle:Default:footer.html.twig' %}

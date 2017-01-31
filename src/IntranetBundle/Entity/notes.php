@@ -36,6 +36,13 @@ class notes
     private $points;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="commentaires", type="string", nullable=true)
+     */
+    private $commentaires;
+
+    /**
      * Get id
      *
      * @return int
@@ -67,6 +74,30 @@ class notes
     public function getPoints()
     {
         return $this->points;
+    }
+
+    /**
+     * Set commentaires
+     *
+     * @param integer $commentaires
+     *
+     * @return notes
+     */
+    public function setCommentaires($commentaires)
+    {
+        $this->commentaires = $commentaires;
+
+        return $this;
+    }
+
+    /**
+     * Get commentaires
+     *
+     * @return int
+     */
+    public function getCommentaires()
+    {
+        return $this->commentaires;
     }
 
 
