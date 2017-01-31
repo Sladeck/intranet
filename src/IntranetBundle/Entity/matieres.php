@@ -22,6 +22,11 @@ class matieres
     private $id;
 
     /**
+     * @ORM\OneToMany(targetEntity="matieres", mappedBy="notes")
+     **/
+    protected $notes;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255, unique=true)
@@ -62,5 +67,45 @@ class matieres
     {
         return $this->name;
     }
-}
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->notes = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
+    /**
+     * Add note
+     *
+     * @param \IntranetBundle\Entity\matieres $note
+     *
+     * @return matieres
+     */
+    public function addNote(\IntranetBundle\Entity\matieres $note)
+    {
+        $this->notes[] = $note;
+
+        return $this;
+    }
+
+    /**
+     * Remove note
+     *
+     * @param \IntranetBundle\Entity\matieres $note
+     */
+    public function removeNote(\IntranetBundle\Entity\matieres $note)
+    {
+        $this->notes->removeElement($note);
+    }
+
+    /**
+     * Get notes
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getNotes()
+    {
+        return $this->notes;
+    }
+}
