@@ -2,6 +2,12 @@
 Welcome {{ app.user.username }} !
 
 <table>
+  <tr>
+    <th>Matière</th>
+    <th>Projet</th>
+    <th>Note</th>
+    <th>Commentaires</th>
+  </tr>
     {% for matiere in matieres %}
     {% for note in current_user.notes %}
     <tr>
