@@ -9,7 +9,7 @@ body{
     padding: 1%;
 }
 /************************* MENU ***********************************************/
-.active a, .active{
+.active > a, .active{
   background-color: #008CBA;
   color: #f1f1f1;
 }
@@ -27,21 +27,23 @@ body{
   padding: 10px;
 }
 
+.dropdown .sub li{
+  display: block;
+}
+
 .menu li a:hover, .menu li:hover, .menu li:hover > a{
   background-color: #008CBA;
   color: white;
 }
 
-.dropdown .sub li{
-  display: block;
-}
-
 .dropdown .sub{
   display: none;
   position: absolute;
-  margin-left: -7px;
+  margin-left: -10px;
   margin-top: 10px;
   text-align: left;
+  border: 2px solid #008CBA;
+  background-color: #f1f1f1;
 }
 
 .dropdown #first-drop:hover > ul.sub{
