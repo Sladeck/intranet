@@ -1,16 +1,14 @@
 {% block menu %}
-    <aside>
-        <nav id="navigation_menu">
-            <ul>
-                <li><a href="/">Index</a></li>
-                <li><a href="/profil">Profil</a></li>
-                <li><a href="/notes">Note</a></li>
-                <li><a href="/matieres">Matières</a></li>
-                {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_PROF') %}
-                  <li><a href="/users">Users (admin only)</a></li>
-                {% endif %}
-                <li><a href="/logout">Logout</a></li>
-            </ul>
-        </nav>
-    </aside>
+<div class="menu-centered">
+  <ul class="menu">
+      <li class="active"><a href="/">Index</a></li>
+      <li><a href="/profil">Profil</a></li>
+      <li><a href="/notes">Note</a></li>
+      <li><a href="/matieres">Matières</a></li>
+      {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_PROF') %}
+        <li><a href="/users">Users (admin only)</a></li>
+      {% endif %}
+      <li><a href="/logout">Logout</a></li>
+  </ul>
+</div>
 {% endblock menu %}
