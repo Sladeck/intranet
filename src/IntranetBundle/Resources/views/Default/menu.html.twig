@@ -1,18 +1,18 @@
 {% block menu %}
 <div class="menu-centered">
   <ul class="dropdown menu data-dropdown-menu">
-      <li {% if app.request.get('_route') == 'home' %} class="active" {%  endif %}><a href="/">Index</a></li>
+      <li {% if app.request.get('_route') == 'home' %} class="active" {%  endif %}><a href="{{ path('home') }}">Index</a></li>
       <li id="first-drop" {% if app.request.get('_route') == 'profil' %} class="active" {%  endif %}>
         <a href=""><i class="fi-list"></i>Profil</a>
         <ul class="menu sub">
           <li><a href="/profile/edit">Mes informations</a></li>
-          <li><a href="/profil">Mes notes</a></li>
+          <li><a href="{{ path('profil') }}">Mes notes</a></li>
         </ul>
       </li>
-      <li {% if app.request.get('_route') == 'notes' %} class="active" {%  endif %}><a href="/notes">Note</a></li>
-      <li {% if app.request.get('_route') == 'matieres' %} class="active" {%  endif %}><a href="/matieres">Matières</a></li>
+      <li {% if app.request.get('_route') == 'notes' %} class="active" {%  endif %}><a href="{{ path('notes') }}">Note</a></li>
+      <li {% if app.request.get('_route') == 'matieres' %} class="active" {%  endif %}><a href="{{ path('matieres') }}">Matières</a></li>
       {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_PROF') %}
-        <li {% if app.request.get('_route') == 'users' %} class="active" {%  endif %}><a href="/users">Users (admin only)</a></li>
+        <li {% if app.request.get('_route') == 'users' %} class="active" {%  endif %}><a href="{{ path('users') }}">Users (admin only)</a></li>
       {% endif %}
       <li><a href="/logout">Logout</a></li>
   </ul>
