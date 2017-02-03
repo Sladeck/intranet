@@ -3,7 +3,7 @@
   <ul class="dropdown menu data-dropdown-menu">
       <li {% if app.request.get('_route') == 'home' %} class="active" {%  endif %}><a href="/">Index</a></li>
       <li id="first-drop" {% if app.request.get('_route') == 'profil' %} class="active" {%  endif %}>
-        <a href="">Profil</a>
+        <a href=""><i class="fi-list"></i>Profil</a>
         <ul class="menu sub">
           <li><a href="/profile/edit">Mes informations</a></li>
           <li><a href="/profil">Mes notes</a></li>
