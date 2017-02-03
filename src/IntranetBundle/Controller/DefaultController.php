@@ -21,13 +21,13 @@ class DefaultController extends Controller
      */
     public function profilAction($id = 0)
     {
-      if($id == 0){
-        $user = $this->getUser(); //get current user
-      }else{
-        $users = $this->getDoctrine()
-            ->getRepository('EntityBundle:User')
-            ->findById($id);
-      }
+        if($id == 0){
+            $user = $this->getUser(); //get current user
+        }else{
+            $user = $this->getDoctrine()
+                ->getRepository('EntityBundle:User')
+                ->findById($id);
+        }
         return $this->render('IntranetBundle:Default:profil.html.twig', array("user"=>$user));
     }
 
