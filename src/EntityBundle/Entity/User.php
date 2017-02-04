@@ -19,6 +19,10 @@ class User extends BaseUser
      */
     protected $id;
 
+    /**
+    * @ORM\ManyToOne(targetEntity="IntranetBundle\Entity\matieres", inversedBy="user")
+    **/
+    protected $matieres;
 
     /**
     * @ORM\OneToMany(targetEntity="IntranetBundle\Entity\notes", mappedBy="user")
@@ -63,5 +67,29 @@ class User extends BaseUser
     public function getNotes()
     {
         return $this->notes;
+    }
+
+    /**
+     * Set matieres
+     *
+     * @param \IntranetBundle\Entity\matieres $matieres
+     *
+     * @return User
+     */
+    public function setMatieres(\IntranetBundle\Entity\matieres $matieres = null)
+    {
+        $this->matieres = $matieres;
+
+        return $this;
+    }
+
+    /**
+     * Get matieres
+     *
+     * @return \IntranetBundle\Entity\matieres
+     */
+    public function getMatieres()
+    {
+        return $this->matieres;
     }
 }

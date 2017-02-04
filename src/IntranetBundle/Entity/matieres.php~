@@ -22,6 +22,11 @@ class matieres
     private $id;
 
     /**
+    * @ORM\OneToMany(targetEntity="EntityBundle\Entity\User", mappedBy="matieres")
+    **/
+    protected $user;
+
+    /**
     * @ORM\OneToMany(targetEntity="notes", mappedBy="matieres")
     **/
     protected $notes;
@@ -66,5 +71,80 @@ class matieres
     public function getName()
     {
         return $this->name;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->notes = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add note
+     *
+     * @param \IntranetBundle\Entity\notes $note
+     *
+     * @return matieres
+     */
+    public function addNote(\IntranetBundle\Entity\notes $note)
+    {
+        $this->notes[] = $note;
+
+        return $this;
+    }
+
+    /**
+     * Remove note
+     *
+     * @param \IntranetBundle\Entity\notes $note
+     */
+    public function removeNote(\IntranetBundle\Entity\notes $note)
+    {
+        $this->notes->removeElement($note);
+    }
+
+    /**
+     * Get notes
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getNotes()
+    {
+        return $this->notes;
+    }
+
+    /**
+     * Add user
+     *
+     * @param \IntranetBundle\Entity\EntityBundle/Entity/user $user
+     *
+     * @return matieres
+     */
+    public function addUser(\IntranetBundle\Entity\EntityBundle\Entity\user $user)
+    {
+        $this->user[] = $user;
+
+        return $this;
+    }
+
+    /**
+     * Remove user
+     *
+     * @param \IntranetBundle\Entity\EntityBundle/Entity/user $user
+     */
+    public function removeUser(\IntranetBundle\Entity\EntityBundle\Entity\user $user)
+    {
+        $this->user->removeElement($user);
+    }
+
+    /**
+     * Get user
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }
