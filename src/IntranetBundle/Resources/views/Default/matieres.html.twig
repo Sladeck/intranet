@@ -1,3 +1,12 @@
 {% include 'IntranetBundle:Default:header.html.twig' %}
 Matieres here !
+
+{% for matiere in matieres %}
+
+{{ matiere.name }}
+{% for user in matiere.users %}
+{{ user.username }}
+{% endfor %}
+{% endfor %}
+
 {% include 'IntranetBundle:Default:footer.html.twig' %}

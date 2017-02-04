@@ -22,9 +22,9 @@ class matieres
     private $id;
 
     /**
-    * @ORM\OneToMany(targetEntity="EntityBundle\Entity\User", mappedBy="matieres")
+    * @ORM\ManyToMany(targetEntity="EntityBundle\Entity\user", mappedBy="matieres")
     **/
-    protected $user;
+    protected $users;
 
     /**
     * @ORM\OneToMany(targetEntity="notes", mappedBy="matieres")
@@ -78,6 +78,7 @@ class matieres
     public function __construct()
     {
         $this->notes = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->users = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -115,15 +116,63 @@ class matieres
     }
 
     /**
-     * Add user
+     * Set matieres
      *
-     * @param \IntranetBundle\Entity\EntityBundle/Entity/user $user
+     * @param \EntityBundle\Entity\User $matieres
      *
      * @return matieres
      */
-    public function addUser(\IntranetBundle\Entity\EntityBundle\Entity\user $user)
+    public function setMatieres(\EntityBundle\Entity\User $matieres = null)
     {
-        $this->user[] = $user;
+        $this->matieres = $matieres;
+
+        return $this;
+    }
+
+    /**
+     * Get matieres
+     *
+     * @return \EntityBundle\Entity\User
+     */
+    public function getMatieres()
+    {
+        return $this->matieres;
+    }
+
+    /**
+     * Set user
+     *
+     * @param array $user
+     *
+     * @return matieres
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return array
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * Add user
+     *
+     * @param \EntityBundle\Entity\user $user
+     *
+     * @return matieres
+     */
+    public function addUser(\EntityBundle\Entity\user $user)
+    {
+        $this->users[] = $user;
 
         return $this;
     }
@@ -131,20 +180,20 @@ class matieres
     /**
      * Remove user
      *
-     * @param \IntranetBundle\Entity\EntityBundle/Entity/user $user
+     * @param \EntityBundle\Entity\user $user
      */
-    public function removeUser(\IntranetBundle\Entity\EntityBundle\Entity\user $user)
+    public function removeUser(\EntityBundle\Entity\user $user)
     {
-        $this->user->removeElement($user);
+        $this->users->removeElement($user);
     }
 
     /**
-     * Get user
+     * Get users
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getUser()
+    public function getUsers()
     {
-        return $this->user;
+        return $this->users;
     }
 }

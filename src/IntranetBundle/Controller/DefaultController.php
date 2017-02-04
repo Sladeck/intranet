@@ -44,7 +44,11 @@ class DefaultController extends Controller
      */
     public function matieresAction()
     {
-        return $this->render('IntranetBundle:Default:matieres.html.twig');
+
+        $matieres = $this->getDoctrine()
+                         ->getRepository('IntranetBundle:matieres')
+                         ->findAll();
+        return $this->render('IntranetBundle:Default:matieres.html.twig', array("matieres"=>$matieres));
     }
 
     /**

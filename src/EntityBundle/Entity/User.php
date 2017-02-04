@@ -20,7 +20,8 @@ class User extends BaseUser
     protected $id;
 
     /**
-    * @ORM\ManyToOne(targetEntity="IntranetBundle\Entity\matieres", inversedBy="user")
+    * @ORM\ManyToMany(targetEntity="IntranetBundle\Entity\matieres", inversedBy="users")
+    * @ORM\JoinTable(name="users_matieres")
     **/
     protected $matieres;
 
@@ -32,7 +33,7 @@ class User extends BaseUser
     public function __construct()
     {
         parent::__construct();
-        // your own logic
+        $this->matieres = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -91,5 +92,30 @@ class User extends BaseUser
     public function getMatieres()
     {
         return $this->matieres;
+    }
+
+
+    /**
+     * Add matiere
+     *
+     * @param \IntranetBundle\Entity\matieres $matiere
+     *
+     * @return User
+     */
+    public function addMatiere(\IntranetBundle\Entity\matieres $matiere)
+    {
+        $this->matieres[] = $matiere;
+
+        return $this;
+    }
+
+    /**
+     * Remove matiere
+     *
+     * @param \IntranetBundle\Entity\matieres $matiere
+     */
+    public function removeMatiere(\IntranetBundle\Entity\matieres $matiere)
+    {
+        $this->matieres->removeElement($matiere);
     }
 }
