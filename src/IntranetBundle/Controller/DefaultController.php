@@ -17,18 +17,18 @@ class DefaultController extends Controller
 
     /**
      * @Route("/profil/", name="profil")
-     * @Route("/profil/{id}", name="user")
+     * @Route("/profil/{id}", name="user", requirements={"id": "\d+"})
      */
     public function profilAction($id = 0)
     {
-      if($id == 0){
-        $user = $this->getUser(); //get current user
-      }else{
-        $user = $this->getDoctrine()
-            ->getRepository('EntityBundle:User')
-            ->findById($id);
-      }
-        return $this->render('IntranetBundle:Default:profil.html.twig', array("user"=>$user));
+        if ($id == 0) {
+            $user = $this->getUser(); //get current user
+        } else {
+            $user = $this->getDoctrine()
+                ->getRepository('EntityBundle:User')
+                ->findById($id);
+        }
+        return $this->render('IntranetBundle:Default:profil.html.twig', array("user" => $user));
     }
 
     /**
@@ -47,7 +47,7 @@ class DefaultController extends Controller
         $matieres = $this->getDoctrine()
                          ->getRepository('IntranetBundle:matieres')
                          ->findAll();
-        return $this->render('IntranetBundle:Default:matieres.html.twig', array("matieres"=>$matieres));
+        return $this->render('IntranetBundle:Default:matieres.html.twig', array("matieres" => $matieres));
     }
 
     /**
@@ -67,7 +67,7 @@ class DefaultController extends Controller
             ->getRepository('EntityBundle:User')
             ->findAll();
 
-        return $this->render('IntranetBundle:Default:users.html.twig', array("users"=>$users));
+        return $this->render('IntranetBundle:Default:users.html.twig', array("users" => $users));
     }
 
 }
