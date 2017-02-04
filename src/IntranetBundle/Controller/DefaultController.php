@@ -44,7 +44,6 @@ class DefaultController extends Controller
      */
     public function matieresAction()
     {
-
         $matieres = $this->getDoctrine()
                          ->getRepository('IntranetBundle:matieres')
                          ->findAll();
