@@ -17,4 +17,12 @@ Welcome {{ user.username }} !
     </tr>
     {% endfor %}
 </table>
+
+{% set sumrating = 0 %}
+{% for note in user.notes %}
+{% set sumrating = sumrating + note.points %}
+{% endfor %}
+Moyenne : {{ sumrating / user.notes|length }}
+
+
 {% include 'IntranetBundle:Default:footer.html.twig' %}
