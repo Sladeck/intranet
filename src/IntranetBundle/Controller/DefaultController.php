@@ -70,4 +70,12 @@ class DefaultController extends Controller
         return $this->render('IntranetBundle:Default:users.html.twig', array("users" => $users));
     }
 
+    /**
+     * @Route("/userProfil/{id}", name="userProfil")
+     */
+    public function userProfilAction()
+    {
+        return $this->render('IntranetBundle:Default:userProfil.html.twig');
+    }
+
 }

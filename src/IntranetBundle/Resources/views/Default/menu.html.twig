@@ -8,7 +8,7 @@
                 <ul class="menu sub">
                     <li><a href="/profile/edit">Mes informations</a></li>
                     <li><a href="{{ path('profil') }}">Mes notes</a></li>
-                    <li><a href="{{ path('matieres') }}">Mes Cours</a></li>
+                    <li><a href="{{ path('matieres') }}">Mes cours</a></li>
                 </ul>
             </li>
             {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_PROF') %}
