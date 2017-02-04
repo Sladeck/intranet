@@ -1,12 +1,17 @@
 {% include 'IntranetBundle:Default:header.html.twig' %}
-Matieres here !
-
-{% for matiere in matieres %}
-
-{{ matiere.name }}
-{% for user in matiere.users %}
-{{ user.username }}
-{% endfor %}
-{% endfor %}
+<div class="row">
+    <div class="medium-7 columns medium-centered">
+        {% for matiere in matieres %}<table class="matieres-table">
+            <tr>
+                <th>{{ matiere.name }}</th>
+            </tr>
+            {% for user in matiere.users %}
+                <tr>
+                    <td>{{ user.username }}</td>
+                </tr>
+            {% endfor %}
+            </table>{% endfor %}
+    </div>
+</div>
 
 {% include 'IntranetBundle:Default:footer.html.twig' %}

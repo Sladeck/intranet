@@ -97,3 +97,11 @@ body{
   color: #7B0200;
   margin-top: 10px;
 }
+
+/*************************** MATIERES *******************************/
+
+.matieres-table{
+    display: inline-block;
+    vertical-align: top;
+    border: none;
+}
