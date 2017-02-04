@@ -22,6 +22,11 @@ class matieres
     private $id;
 
     /**
+    * @ORM\OneToMany(targetEntity="EntityBundle\Entity\User", mappedBy="matieres")
+    **/
+    protected $user;
+
+    /**
     * @ORM\OneToMany(targetEntity="notes", mappedBy="matieres")
     **/
     protected $notes;
@@ -107,5 +112,39 @@ class matieres
     public function getNotes()
     {
         return $this->notes;
+    }
+
+    /**
+     * Add user
+     *
+     * @param \IntranetBundle\Entity\EntityBundle/Entity/user $user
+     *
+     * @return matieres
+     */
+    public function addUser(\IntranetBundle\Entity\EntityBundle\Entity\user $user)
+    {
+        $this->user[] = $user;
+
+        return $this;
+    }
+
+    /**
+     * Remove user
+     *
+     * @param \IntranetBundle\Entity\EntityBundle/Entity/user $user
+     */
+    public function removeUser(\IntranetBundle\Entity\EntityBundle\Entity\user $user)
+    {
+        $this->user->removeElement($user);
+    }
+
+    /**
+     * Get user
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }
