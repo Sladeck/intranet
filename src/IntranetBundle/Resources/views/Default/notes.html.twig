@@ -1,3 +1,9 @@
 {% include 'IntranetBundle:Default:header.html.twig' %}
-Notes here !
+{% if is_granted('ROLE_ADMIN') or is_granted('ROLE_PROF') %}
+    Notes here !
+{% else %}
+    <script type="text/javascript">
+    window.location.replace("/");
+</script>
+{% endif %}
 {% include 'IntranetBundle:Default:footer.html.twig' %}
