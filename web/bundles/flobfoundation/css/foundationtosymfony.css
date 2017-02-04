@@ -24,6 +24,6 @@ select[size], select[multiple] {
 
 /* Matiere table */
 
-.columns.medium-centered:last-child{
+.columns.medium-centered:last-child {
     text-align: center;
 }
