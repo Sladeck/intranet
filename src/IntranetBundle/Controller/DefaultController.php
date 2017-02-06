@@ -17,17 +17,10 @@ class DefaultController extends Controller
 
     /**
      * @Route("/profil/", name="profil")
-     * @Route("/profil/{id}", name="user", requirements={"id": "\d+"})
      */
     public function profilAction($id = 0)
     {
-        if ($id === 0) {
             $user = $this->getUser(); //get current user
-        } else {
-            $user = $this->getDoctrine()
-                    ->getRepository('EntityBundle:User')
-                    ->findById($id);
-        }
         return $this->render('IntranetBundle:Default:profil.html.twig', array("user" => $user));
     }
 
