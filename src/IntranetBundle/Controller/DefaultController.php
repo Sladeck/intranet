@@ -46,7 +46,6 @@ class DefaultController extends Controller
     {
       $user = $this->getUser();
       $id_user = $user->getId();
-      var_dump($id_user);
         $matieres = $this->getDoctrine()
                          ->getRepository('IntranetBundle:matieres')
                          ->findAll();
@@ -76,9 +75,12 @@ class DefaultController extends Controller
     /**
      * @Route("/userProfil/{id}", name="userProfil")
      */
-    public function userProfilAction()
+    public function userProfilAction($id)
     {
-        return $this->render('IntranetBundle:Default:userProfil.html.twig');
+      $user = $this->getDoctrine()
+              ->getRepository('EntityBundle:User')
+              ->findById($id);
+        return $this->render('IntranetBundle:Default:userProfil.html.twig', array("user"=>$user));
     }
 
 }
