@@ -21,12 +21,12 @@ class DefaultController extends Controller
      */
     public function profilAction($id = 0)
     {
-        if ($id == 0) {
+        if ($id === 0) {
             $user = $this->getUser(); //get current user
         } else {
             $user = $this->getDoctrine()
-                ->getRepository('EntityBundle:User')
-                ->findById($id);
+                    ->getRepository('EntityBundle:User')
+                    ->findById($id);
         }
         return $this->render('IntranetBundle:Default:profil.html.twig', array("user" => $user));
     }
@@ -44,6 +44,9 @@ class DefaultController extends Controller
      */
     public function matieresAction()
     {
+      $user = $this->getUser();
+      $id_user = $user->getId();
+      var_dump($id_user);
         $matieres = $this->getDoctrine()
                          ->getRepository('IntranetBundle:matieres')
                          ->findAll();

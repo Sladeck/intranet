@@ -1,28 +1,56 @@
 {% include 'IntranetBundle:Default:header.html.twig' %}
-Welcome {{ user.username }} !
 
-<table>
-    <tr>
-        <th>Matière</th>
-        <th>Projet</th>
-        <th>Note</th>
-        <th>Commentaires</th>
-    </tr>
-    {% for note in user.notes %}
+
+<div class="row">
+  <div class="small-10 medium-5 medium-centered columns">
+    <table>
         <tr>
-            <td> {{ note.matieres.name }} </td>
-            <td> {{ note.project }} </td>
-            <td> {{ note.points }} </td>
-            <td> {{ note.commentaires }} </td>
+            <th>Matière</th>
+            <th>Projet</th>
+            <th>Note</th>
+            <th>Commentaires</th>
         </tr>
-    {% endfor %}
-</table>
+        {% if user.username is defined %}
+        {% for note in user.notes %}
+            <tr>
+                <td> {{ note.matieres.name }} </td>
+                <td> {{ note.project }} </td>
+                <td> {{ note.points }} </td>
+                <td> {{ note.commentaires }} </td>
+            </tr>
+        {% endfor %}
+        {% else %}
+          {% for infos in user %}
+            {% for note in infos.notes %}
+                <tr>
+                    <td> {{ note.matieres.name }} </td>
+                    <td> {{ note.project }} </td>
+                    <td> {{ note.points }} </td>
+                    <td> {{ note.commentaires }} </td>
+                </tr>
+            {% endfor %}
+          {% endfor %}
+        {% endif %}
+    </table>
 
-{% set sumrating = 0 %}
-{% for note in user.notes %}
-{% set sumrating = sumrating + note.points %}
-{% endfor %}
-Moyenne : {{ sumrating / user.notes|length }}
+    {% if user.username is defined %}
+      {% set sumrating = 0 %}
+      {% for note in user.notes %}
+        {% set sumrating = sumrating + note.points %}
+      {% endfor %}
+      Moyenne : {{ sumrating / user.notes|length }}
+    {% else %}
+      {% for infos in user %}
+      {% set sumrating = 0 %}
+      {% for note in infos.notes %}
+        {% set sumrating = sumrating + note.points %}
+      {% endfor %}
+      Moyenne : {{ sumrating / infos.notes|length }}
+      {% endfor %}
+    {% endif %}
+  </div>
+</div>
+
 
 
 {% include 'IntranetBundle:Default:footer.html.twig' %}
