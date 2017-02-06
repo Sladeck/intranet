@@ -24,6 +24,8 @@
                 {% set sumrating = sumrating + note.points %}
             {% endfor %}
             Moyenne : {{ sumrating / user.notes|length }}
+        {% else %}
+        Vous n'avez pas encore de notes pour le moment !
         {% endif %}
     </div>
 </div>
