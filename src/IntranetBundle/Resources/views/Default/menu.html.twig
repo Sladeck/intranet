@@ -12,7 +12,7 @@
                 </ul>
             </li>
             {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_PROF') %}
-                <li {% if app.request.get('_route') == 'notes' %} class="active" {% endif %}><a href="{{ path('notes') }}">Note</a>
+                <li {% if app.request.get('_route') == 'notes' %} class="active" {% endif %}><a href="{{ path('notes') }}">Notation</a>
             {% endif %}
             </li>
             {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_PROF') %}
