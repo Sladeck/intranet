@@ -55,7 +55,7 @@ body {
 }
 
 /********************* FOS OVERRIDE LOGIN PAGE ********************************/
-.login-page .columns .register, .register-page .columns .login{
+.login-page .columns .register, .register-page .columns .login {
     display: block;
     font-size: 12px;
     text-align: center !important;
@@ -108,4 +108,9 @@ body {
     display: inline-block;
     vertical-align: top;
     border: none;
+}
+
+.matieres-legend {
+    color: red;
+    text-align: center;
 }

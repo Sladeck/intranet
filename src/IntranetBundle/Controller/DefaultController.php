@@ -45,11 +45,15 @@ class DefaultController extends Controller
     public function matieresAction()
     {
       $user = $this->getUser();
-      $id_user = $user->getId();
-        $matieres = $this->getDoctrine()
-                         ->getRepository('IntranetBundle:matieres')
-                         ->findAll();
-        return $this->render('IntranetBundle:Default:matieres.html.twig', array("matieres" => $matieres));
+      $matieres = $this->getDoctrine()
+            ->getRepository('IntranetBundle:matieres')
+            ->findAll();
+      //$id_user = $user->getId();
+      //$matieres = $this->getDoctrine()
+      //                   ->getRepository('IntranetBundle:matieres')
+      //                   ->findbyId();
+
+        return $this->render('IntranetBundle:Default:matieres.html.twig', array("user" => $user, "user_matieres" => $matieres));
     }
 
     /**

@@ -37,4 +37,4 @@ security:
         - { path: ^/users, role: ROLE_SUPER_ADMIN }
         - { path: ^/, role: ROLE_USER }
 
-    access_denied_url: /login
+    access_denied_url: /

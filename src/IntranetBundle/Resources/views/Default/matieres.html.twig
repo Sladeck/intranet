@@ -1,16 +1,26 @@
 {% include 'IntranetBundle:Default:header.html.twig' %}
 <div class="row">
-    <div class="medium-7 columns medium-centered">
-        {% for matiere in matieres %}<table class="matieres-table">
-            <tr>
-                <th>{{ matiere.name }}</th>
-            </tr>
-            {% for user in matiere.users %}
-                <tr>
-                    <td>{{ user.username }}</td>
-                </tr>
+<table class="small-10 medium-5 medium-centered columns">
+    <tr>
+        {% for matieres in user_matieres %}
+            <td>{{ matieres.name }}</td>
+        {% endfor %}
+    </tr>
+    <tr>
+        {% for matieres in user_matieres %}
+            {% set mine = false %}
+            {% for matiere in user.matieres %}
+                {% if matieres.name in matiere.name %}
+                    {% set mine = true %}
+                {% endif %}
             {% endfor %}
-            </table>{% endfor %}
-    </div>
+            {% if mine == true %}
+                <td class="matieres-legend">X</td>
+            {% else %}
+                <td></td>
+            {% endif %}
+        {% endfor %}
+    </tr>
+</table>
 </div>
 {% include 'IntranetBundle:Default:footer.html.twig' %}
