@@ -55,7 +55,7 @@ body {
 }
 
 /********************* FOS OVERRIDE LOGIN PAGE ********************************/
-.login-page .columns #register {
+.login-page .columns .register, .register-page .columns .login{
     display: block;
     font-size: 12px;
     text-align: center !important;
