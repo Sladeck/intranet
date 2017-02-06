@@ -33,7 +33,8 @@ security:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/admin/, role: ROLE_ADMIN }
+        - { path: ^/userProfil/.*, role: ROLE_SUPER_ADMIN }
+        - { path: ^/users, role: ROLE_SUPER_ADMIN }
         - { path: ^/, role: ROLE_USER }
-        - { path: ^/users, role: ROLE_ADMIN }
-        - { path: ^/userProfil/^, role: ROLE_ADMIN }
+
+    access_denied_url: /login
