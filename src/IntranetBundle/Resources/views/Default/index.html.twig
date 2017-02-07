@@ -1,3 +1,18 @@
 {% include 'IntranetBundle:Default:header.html.twig' %}
-    Hello !
+<div class="row">
+    <div class="small-10 medium-6 medium-centered columns">
+        <div class="index-notes">
+            <a class="index-links" href="{{ path('profil') }}">
+                <img class="index-img" src="{{ asset('img/Img_Note.png') }}">
+                <div class="index-content-text">NOTES</div>
+            </a>
+        </div>
+        <div class="index-matieres">
+            <a class="index-links" href="{{ path('matieres') }}">
+                <img class="index-img" src="{{ asset('img/Img_Projet.png') }}">
+                <div class="index-content-text">MATIÈRES</div>
+            </a>
+        </div>
+    </div>
+</div>
 {% include 'IntranetBundle:Default:footer.html.twig' %}

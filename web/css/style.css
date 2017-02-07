@@ -115,6 +115,31 @@ body {
     text-align: center;
 }
 
+/*************************** INDEX *******************************/
+
+.index-notes, .index-matieres {
+    background: red;
+    height: 150px;
+    margin: 50px 0;
+    position: relative;
+}
+
+.index-links, .index-links:hover {
+    color: #fff;
+}
+
+.index-img {
+    height: 100%;
+}
+
+.index-content-text {
+    position: absolute;
+    bottom: 0;
+    background: black;
+    width: 100%;
+
+}
+
 /*************************** TABLE *******************************/
 
 .table-max-width {
