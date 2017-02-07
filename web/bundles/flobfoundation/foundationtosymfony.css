@@ -21,9 +21,3 @@ select {
 select[size], select[multiple] {
     background-image: none;
 }
-
-/* Matiere table */
-
-.columns.medium-centered:last-child {
-    text-align: center;
-}
