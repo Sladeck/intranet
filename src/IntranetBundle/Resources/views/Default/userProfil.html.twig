@@ -1,6 +1,6 @@
 {% include 'IntranetBundle:Default:header.html.twig' %}
 <div class="row">
-  <div class="small-10 medium-6 columns">
+  <div class="small-10 medium-10 columns">
     {% for infos in user %}
     <form class="" action="/updateUser" method="post">
       <table>
@@ -47,12 +47,12 @@
                     <th>{{ note.matieres.name }}</th>
                     <td><input type="text" name="" value="{{ note.project }}"></td>
                     <td><input type="text" name="" value="{{ note.points }}"></td>
-                    <td><input type="text" name="" value="{{ note.commentaires }}"></td>
+                    <td><textarea name="name" rows="4" cols="50">{{ note.commentaires }}</textarea></td>
                 </tr>
             {% endfor %}
         </table>
   </div>
-  <div class="small-10 medium-6 columns">
+  <div class="small-10 medium-2 columns">
     <form class="" action="/deleteUser" method="post">
       {% for infos in user %}
       <input type="hidden" name="id" value="{{infos.id}}">
