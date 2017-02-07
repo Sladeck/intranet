@@ -1,6 +1,32 @@
 {% include 'IntranetBundle:Default:header.html.twig' %}
-<div class="">
-    <h2>USERS :</h2>
+<div class="row">
+  <div class="small-10 medium-6 columns">
+    <h2>Créer un nouvel utilisateur :</h2>
+    <form class="" action="/createUser" method="post">
+      <label for="username">Username
+        <input type="text" id="username" name="username" value="">
+      </label>
+      <label for="email">Email
+        <input type="email" id="email" name="email" value="">
+      </label>
+      <label for="password">Mot de Passe
+        <input type="password" name="password" value="">
+      </label>
+      <label for="role">Role
+        <select class="" name="roles[]">
+            <option value="" selected>Elève</option>
+            <option value="ROLE_ADMIN">Professeur</option>
+            <option value="ROLE_SUPER_ADMIN">Administrateur</option>
+        </select>
+      </label>
+      <input type="submit" name="" value="Valider">
+    </form>
+  </div>
+</div>
+
+<div class="row">
+  <div class="small-10 medium-6 columns">
+    <h2>Utilisateurs :</h2>
     <ul>
         {% for user in users %}
             <li>
@@ -8,5 +34,6 @@
             </li>
         {% endfor %}
     </ul>
+  </div>
 </div>
 {% include 'IntranetBundle:Default:footer.html.twig' %}

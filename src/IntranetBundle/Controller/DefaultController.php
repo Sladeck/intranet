@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use IntranetBundle\Form\notesType;
 use Symfony\Component\HttpFoundation\Request;
+use FOS\UserBundle\Entity\UserManager;
 
 class DefaultController extends Controller
 {
@@ -79,21 +80,60 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/{url}", name="remove_trailing_slash",
-     *     requirements={"url" = ".*\/$"}, methods={"GET"})
+     * @Route("/createUser", name="createUser")
      */
-    public function removeTrailing(Request $request)
+    public function createUserAction(Request $request)
     {
-        return $this->render('IntranetBundle:Default:index.html.twig');
+
+      $userManager = $this->get('fos_user.user_manager');
+      $user = $userManager->createUser();
+      $user->setUsername($request->get("username"));
+      $user->setEmail($request->get("email"));
+      $user->setPlainPassword($request->get("password"));
+      $user->setRoles($request->get("roles"));
+
+      $userManager->updateUser($user);
+
+      $users = $this->getDoctrine()
+          ->getRepository('EntityBundle:User')
+          ->findAll();
+        return $this->render('IntranetBundle:Default:users.html.twig', array("users" => $users));
     }
 
-    public function removeTrailingSlashAction(Request $request)
+    /**
+    * @Route("/deleteUser", name="deleteUser")
+    **/
+    public function deleteUserAction(Request $request)
     {
-        $pathInfo = $request->getPathInfo();
-        $requestUri = $request->getRequestUri();
+      $userManager = $this->get('fos_user.user_manager');
 
-        $url = str_replace($pathInfo, rtrim($pathInfo, ' /'), $requestUri);
+      $user = $userManager->findUserBy(array('id'=>$request->get("id")));
+      $userManager->deleteUser($user);
 
-        return $this->redirect($url, 404);
+      $users = $this->getDoctrine()
+          ->getRepository('EntityBundle:User')
+          ->findAll();
+        return $this->render('IntranetBundle:Default:users.html.twig', array("users" => $users));
+    }
+
+    /**
+     * @Route("/updateUser", name="updateUser")
+     */
+    public function updateUserAction(Request $request)
+    {
+      $userManager = $this->get('fos_user.user_manager');
+      $user = $userManager->findUserBy(array('id'=>$request->get('id')));
+      $user->setUsername($request->get('username'));
+      $user->setEmail($request->get('email'));
+      $user->setPlainPassword($request->get('password'));
+      $user->setRoles($request->get('roles'));
+
+      $userManager->updateUser($user);
+
+      $user = $this->getDoctrine()
+          ->getRepository('EntityBundle:User')
+          ->findById($request->get('id'));
+
+        return $this->render('IntranetBundle:Default:userProfil.html.twig', array("user" => $user));
     }
 }
