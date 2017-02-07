@@ -11,13 +11,13 @@
                     <li><a href="{{ path('matieres') }}">Mes cours</a></li>
                 </ul>
             </li>
-            {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_PROF') %}
-            <li {% if app.request.get('_route') == 'notes' %} class="active" {% endif %}><a href="{{ path('notes') }}">Notation</a>
-                {% endif %}
+            {% if is_granted('ROLE_PROF') %}
+                <li {% if app.request.get('_route') == 'notes' %} class="active" {% endif %}><a href="{{ path('notes') }}">Notation</a>
+            {% endif %}
             </li>
-            {% if is_granted('ROLE_ADMIN') %}
-                <li {% if app.request.get('_route') == 'users' %} class="active" {% endif %}><a
-                            href="{{ path('users') }}">Users (admin only)</a></li>
+            {% if is_granted('ROLE_SUPER_ADMIN') %}
+                <li {% if app.request.get('_route') == 'users' %} class="active" {% endif %}><a href="{{ path('users') }}">Users (admin only)</a></li>
+
             {% endif %}
             <li><a href="/logout">Logout</a></li>
         </ul>

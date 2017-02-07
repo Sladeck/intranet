@@ -4,6 +4,7 @@ namespace IntranetBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use IntranetBundle\Form\notesType;
 
 class DefaultController extends Controller
 {
