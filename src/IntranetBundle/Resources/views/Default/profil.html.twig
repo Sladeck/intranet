@@ -2,21 +2,21 @@
 
 <div class="row">
     <div class="small-10 medium-5 medium-centered columns">
-        <table>
+        <table class="table-max-width">
             <tr>
                 <th>Matière</th>
                 <th>Projet</th>
                 <th>Note</th>
                 <th>Commentaires</th>
             </tr>
-                {% for note in user.notes %}
-                    <tr>
-                        <td> {{ note.matieres.name }} </td>
-                        <td> {{ note.project }} </td>
-                        <td> {{ note.points }} </td>
-                        <td> {{ note.commentaires }} </td>
-                    </tr>
-                {% endfor %}
+            {% for note in user.notes %}
+                <tr>
+                    <td> {{ note.matieres.name }} </td>
+                    <td> {{ note.project }} </td>
+                    <td> {{ note.points }} </td>
+                    <td> {{ note.commentaires }} </td>
+                </tr>
+            {% endfor %}
         </table>
         {% if user.notes|length != 0 %}
             {% set sumrating = 0 %}
@@ -25,7 +25,7 @@
             {% endfor %}
             Moyenne : {{ sumrating / user.notes|length }}
         {% else %}
-        Vous n'avez pas encore de notes pour le moment !
+            Vous n'avez pas encore de notes pour le moment !
         {% endif %}
     </div>
 </div>

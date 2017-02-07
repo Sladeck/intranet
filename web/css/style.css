@@ -114,3 +114,9 @@ body {
     color: red;
     text-align: center;
 }
+
+/*************************** TABLE *******************************/
+
+.table-max-width {
+    width: 100%;
+}

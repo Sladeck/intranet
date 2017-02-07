@@ -18,9 +18,9 @@ class DefaultController extends Controller
     /**
      * @Route("/profil/", name="profil")
      */
-    public function profilAction($id = 0)
+    public function profilAction()
     {
-            $user = $this->getUser(); //get current user
+        $user = $this->getUser(); //get current user
         return $this->render('IntranetBundle:Default:profil.html.twig', array("user" => $user));
     }
 
@@ -37,14 +37,10 @@ class DefaultController extends Controller
      */
     public function matieresAction()
     {
-      $user = $this->getUser();
-      $matieres = $this->getDoctrine()
+        $user = $this->getUser();
+        $matieres = $this->getDoctrine()
             ->getRepository('IntranetBundle:matieres')
             ->findAll();
-      //$id_user = $user->getId();
-      //$matieres = $this->getDoctrine()
-      //                   ->getRepository('IntranetBundle:matieres')
-      //                   ->findbyId();
 
         return $this->render('IntranetBundle:Default:matieres.html.twig', array("user" => $user, "user_matieres" => $matieres));
     }
@@ -74,10 +70,10 @@ class DefaultController extends Controller
      */
     public function userProfilAction($id)
     {
-      $user = $this->getDoctrine()
-              ->getRepository('EntityBundle:User')
-              ->findById($id);
-        return $this->render('IntranetBundle:Default:userProfil.html.twig', array("user"=>$user));
+        $user = $this->getDoctrine()
+            ->getRepository('EntityBundle:User')
+            ->findById($id);
+        return $this->render('IntranetBundle:Default:userProfil.html.twig', array("user" => $user));
     }
 
 }

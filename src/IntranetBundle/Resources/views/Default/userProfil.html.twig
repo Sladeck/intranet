@@ -1,41 +1,47 @@
 {% include 'IntranetBundle:Default:header.html.twig' %}
 
 {% for infos in user %}
-<table>
-  <tr>
-    <th>Nom</th><td> <input type="text" name="username" value="{{ infos.username }}"></td>
-  </tr>
-  <tr>
-    <th>Prénom</th><td> <input type="text" name="lastname" value="{{ infos.usernameCanonical }}"></td>
-  </tr>
-  <tr>
-    <th>Email</th><td> <input type="text" name="email" value="{{ infos.email }}"></td>
-  </tr>
-  <tr>
-    <th>MDP</th><td><input type="text" name="password" value=""></td>
-  </tr>
-  <tr>
-    <th>ROLE</th>
-    <td>
-      <select class="" name="roles">
-        <option value="" {% if infos.roles[0] == 'ROLE_USER' %} selected {% endif %}>ROLE_USER</option>
-        <option value="ROLE_PROF" {% if infos.roles[0] == 'ROLE_PROF' %} selected {% endif %}>ROLE_PROF</option>
-        <option value="ROLE_ADMIN" {% if infos.roles[0] == 'ROLE_ADMIN' %} selected {% endif %}>ROLE_ADMIN</option>
-      </select>
-    </td>
-  </tr>
-</table>
+    <table>
+        <tr>
+            <th>Nom</th>
+            <td><input type="text" name="username" value="{{ infos.username }}"></td>
+        </tr>
+        <tr>
+            <th>Prénom</th>
+            <td><input type="text" name="lastname" value="{{ infos.usernameCanonical }}"></td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td><input type="text" name="email" value="{{ infos.email }}"></td>
+        </tr>
+        <tr>
+            <th>MDP</th>
+            <td><input type="text" name="password" value=""></td>
+        </tr>
+        <tr>
+            <th>ROLE</th>
+            <td>
+                <select class="" name="roles">
+                    <option value="" {% if infos.roles[0] == 'ROLE_USER' %} selected {% endif %}>ROLE_USER</option>
+                    <option value="ROLE_PROF" {% if infos.roles[0] == 'ROLE_PROF' %} selected {% endif %}>ROLE_PROF
+                    </option>
+                    <option value="ROLE_ADMIN" {% if infos.roles[0] == 'ROLE_ADMIN' %} selected {% endif %}>ROLE_ADMIN
+                    </option>
+                </select>
+            </td>
+        </tr>
+    </table>
 
-<table>
-  {% for note in infos.notes %}
-      <tr>
-          <th>{{ note.matieres.name }}</th>
-          <td> <input type="text" name="" value="{{ note.project }}"></td>
-          <td> <input type="text" name="" value="{{ note.points }}"></td>
-          <td> <input type="text" name="" value="{{ note.commentaires }}"></td>
-      </tr>
-  {% endfor %}
-</table>
+    <table>
+        {% for note in infos.notes %}
+            <tr>
+                <th>{{ note.matieres.name }}</th>
+                <td><input type="text" name="" value="{{ note.project }}"></td>
+                <td><input type="text" name="" value="{{ note.points }}"></td>
+                <td><input type="text" name="" value="{{ note.commentaires }}"></td>
+            </tr>
+        {% endfor %}
+    </table>
 
 {% endfor %}
 {% include 'IntranetBundle:Default:footer.html.twig' %}
